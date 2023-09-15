@@ -1,19 +1,32 @@
-# Python program to find the factorial of a number provided by the user.
+# Python program to create Bankaccount class
+# with both a deposit() and a withdraw() function
+class Bank_Account:
+	def __init__(self):
+		self.balance=0
+		print("Hello!!! Welcome to the Deposit & Withdrawal Machine")
 
-# change the value for a different result
-num = 7
+	def deposit(self):
+		amount=float(input("Enter amount to be Deposited: "))
+		self.balance += amount
+		print("\n Amount Deposited:",amount)
 
-# To take input from the user
-#num = int(input("Enter a number: "))
+	def withdraw(self):
+		amount = float(input("Enter amount to be Withdrawn: "))
+		if self.balance>=amount:
+			self.balance-=amount
+			print("\n You Withdrew:", amount)
+		else:
+			print("\n Insufficient balance ")
 
-factorial = 1
+	def display(self):
+		print("\n Net Available Balance=",self.balance)
 
-# check if the number is negative, positive or zero
-if num < 0:
-   print("Sorry, factorial does not exist for negative numbers")
-elif num == 0:
-   print("The factorial of 0 is 1")
-else:
-   for i in range(1,num + 1):
-       factorial = factorial*i
-   print("The factorial of",num,"is",factorial)
+# Driver code
+
+# creating an object of class
+s = Bank_Account()
+
+# Calling functions with that class object
+s.deposit()
+s.withdraw()
+s.display()
